@@ -1,0 +1,21 @@
+{
+  "name": "Noesana",
+  "short_name": "Noesana",
+  "description": "Brainwave-Sensing Headband & Dome Cognitive Analytics",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF5500",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
