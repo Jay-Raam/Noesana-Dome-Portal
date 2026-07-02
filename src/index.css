@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-cyber: 'Orbitron', sans-serif;
+  
+  --color-noesana-black: #000000;
+  --color-noesana-white: #F3F4F6;
+  --color-noesana-gray: #EAECEF;
+  --color-noesana-orange: #FF5500;
+  
+  --color-slate-50: var(--color-zinc-50);
+  --color-slate-100: var(--color-zinc-100);
+  --color-slate-200: var(--color-zinc-200);
+  --color-slate-300: var(--color-zinc-300);
+  --color-slate-400: var(--color-zinc-400);
+  --color-slate-500: var(--color-zinc-500);
+  --color-slate-600: var(--color-zinc-600);
+  --color-slate-700: var(--color-zinc-700);
+  --color-slate-800: var(--color-zinc-800);
+  --color-slate-900: var(--color-zinc-900);
+  --color-slate-950: var(--color-zinc-950);
+  
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.98);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+/* Custom Base Styles */
+:root {
+  --brain-bg: rgba(0, 0, 0, 0.6);
+  --brain-border: rgba(255, 255, 255, 0.05);
+  --brain-outline: rgba(255, 255, 255, 0.08);
+  --brain-connector: rgba(255, 255, 255, 0.04);
+  --brain-text-primary: rgba(255, 255, 255, 0.18);
+  --brain-text-secondary: rgba(255, 255, 255, 0.12);
+  
+  --lobe-fill-unselected: rgba(255, 255, 255, 0.01);
+  --lobe-stroke-unselected: rgba(255, 255, 255, 0.03);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-noesana-black);
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom utility styles */
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+
+.text-stroke-orange {
+  -webkit-text-stroke: 1px rgba(255, 85, 0, 0.25);
+  color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5500;
+}
+
+/* Toast slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Light Theme Overrides ===== */
+html.light {
+  --brain-bg: #e8e8e6;
+  --brain-border: rgba(0, 0, 0, 0.08);
+  --brain-outline: rgba(0, 0, 0, 0.15);
+  --brain-connector: rgba(0, 0, 0, 0.06);
+  --brain-text-primary: rgba(0, 0, 0, 0.45);
+  --brain-text-secondary: rgba(0, 0, 0, 0.3);
+  
+  --lobe-fill-unselected: rgba(0, 0, 0, 0.01);
+  --lobe-stroke-unselected: rgba(0, 0, 0, 0.06);
+}
+
+html.light body {
+  background-color: #f8f8f6;
+  color: #1c1c1c;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f0f0ee;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+}
+
+html.light .bg-black {
+  background-color: #f8f8f6;
+}
+html.light .bg-black\/60 {
+  background-color: var(--brain-bg);
+}
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/40 {
+  background-color: rgba(245, 245, 243, 0.8);
+}
+html.light .bg-slate-950 {
+  background-color: #f0eeeb;
+}
+html.light .text-white {
+  color: #1c1c1c;
+}
+html.light .text-slate-200 {
+  color: #3f3f3f;
+}
+html.light .text-slate-400 {
+  color: #4a4a4a;
+}
+html.light .text-slate-500 {
+  color: #5a5a5a;
+}
+html.light .text-slate-600 {
+  color: #3a3a3a;
+}
+html.light .border-white\/5,
+html.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html.light header.fixed {
+  background-color: rgba(248, 248, 246, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+html.light input[type="range"],
+html.light input[type="range"].bg-slate-900 {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+html.light .bg-slate-950\/80 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+html.light .bg-black\/40 {
+  background-color: var(--brain-bg) !important;
+}
+html.light .bg-slate-900\/30 {
+  background-color: var(--brain-bg) !important;
+  border-color: var(--brain-border) !important;
+}
+html.light .text-slate-300 {
+  color: #353535 !important;
+}
+html.light .text-slate-100 {
+  color: #1a1a1a !important;
+}
+html.light .bg-black\/50 {
+  background-color: var(--brain-bg) !important;
+}
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+html.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Phone Mockup Theme Preservation overrides */
+html.light .phone-mockup,
+html.light .phone-mockup * {
+  color: #f3f4f6 !important;
+}
+html.light .phone-mockup .text-slate-400 {
+  color: #94a3b8 !important;
+}
+html.light .phone-mockup .text-slate-500 {
+  color: #64748b !important;
+}
+html.light .phone-mockup .text-noesana-orange {
+  color: #ff5500 !important;
+}
+html.light .phone-mockup .bg-slate-950\/60 {
+  background-color: rgba(2, 6, 23, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
